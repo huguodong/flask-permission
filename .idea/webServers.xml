@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ca6f8d34-f08c-4deb-be0d-460a8d63fec2" name="47.97.218.139" url="http://47.97.218.139">
+        <fileTransfer host="47.97.218.139" port="22" rootFolder="/home/etouch/d2admin/DEVOPS" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

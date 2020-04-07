@@ -44,7 +44,13 @@ def menus():
     page_size = res_dir.get("page_size")
     # 如果没有查询条件，则返回全部数据
     if not visible and not menu_name:
-        data = constructMenuTrees()  # 获取菜单树
+        #先从redis读取
+        menu_redis = Redis.read_dict("menu")
+        if menu_redis:
+            data = menu_redis  # 获取菜单树
+        else:
+            data = constructMenuTrees()  # 获取菜单树
+            Redis.write_dict("menu", data, 36000)
         return jsonify(code=Code.SUCCESS.value, msg="ok", data=data)
     else:
         if not page or page <= 0:
@@ -94,6 +100,7 @@ def create():
         menu.remark = res_dir.get("remark"),
         menu.create_by = user['name'],
         menu.save()
+        Redis.delete("menu")
         return SUCCESS()
     except Exception as e:
         app.logger.error(f"新建菜单失败:{e}")
@@ -121,6 +128,7 @@ def delete():
             menu = Menu.query.get(menu_id)
             if menu:
                 menu.delete()
+                Redis.delete("menu")
                 return SUCCESS()
             else:
                 return ID_NOT_FOUND()
@@ -178,6 +186,7 @@ def update():
                 model.update_by = user['name']
                 try:
                     model.update()
+                    Redis.delete("menu")
                     return SUCCESS()
                 except Exception as e:
                     app.logger.error(f"更新菜单失败:{e}")

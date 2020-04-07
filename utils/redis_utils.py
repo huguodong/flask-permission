@@ -53,7 +53,9 @@ class Redis(object):
         else:
             expire_in_seconds = app.config['REDIS_EXPIRE']
         r = self._get_r()
-        r.set(pickle.dumps(key), pickle.dumps(value), ex=expire_in_seconds)
+        r.set(key, pickle.dumps(value), ex=expire_in_seconds)
+
+
 
     @classmethod
     def read_dict(self, key):
@@ -61,7 +63,7 @@ class Redis(object):
         将文本流从redis中读取并反序列化，返回
         '''
         r = self._get_r()
-        data = r.get(pickle.dumps(key))
+        data = r.get(key)
         if data is None:
             return None
         return pickle.loads(data)

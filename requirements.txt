@@ -10,7 +10,7 @@ flask-redis==0.4.0
 Flask-SQLAlchemy==2.4.1
 idna==2.9
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 mysqlclient==1.4.6
 pipreqs==0.4.10

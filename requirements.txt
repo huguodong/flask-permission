@@ -17,7 +17,7 @@ pipreqs==0.4.10
 pycodestyle==2.5.0
 PyJWT==1.7.1
 pywin32==227
-PyYAML==5.3
+PyYAML==5.4
 redis==3.4.1
 requests==2.23.0
 six==1.14.0

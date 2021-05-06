@@ -4,7 +4,7 @@ chardet==3.0.4
 Click==7.0
 docopt==0.6.2
 Flask==1.1.1
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask-JWT-Extended==3.24.1
 flask-redis==0.4.0
 Flask-SQLAlchemy==2.4.1

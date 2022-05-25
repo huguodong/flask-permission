@@ -15,7 +15,7 @@ MarkupSafe==1.1.1
 mysqlclient==1.4.6
 pipreqs==0.4.10
 pycodestyle==2.5.0
-PyJWT==1.7.1
+PyJWT==2.4.0
 pywin32==227
 PyYAML==5.3
 redis==3.4.1
